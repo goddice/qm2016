@@ -18,6 +18,9 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MeshLib\Point.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5A006396-A826-4605-A731-A120A8618B2B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
