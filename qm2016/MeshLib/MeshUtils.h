@@ -31,14 +31,7 @@ namespace MeshUtils {
 
     template<typename V, template<typename>typename P>
         int number_of_connected_components(std::vector<std::shared_ptr<P<V>>> polygons);
-
-    template<typename V>
-    std::shared_ptr<Polygon<V>> merge(std::vector<std::shared_ptr<Polygon<V>>> polygons);
-
-    template<typename V>
-        std::shared_ptr<Polygon<V>> simplify_boundary(std::shared_ptr<Polygon<V>> polygon);
-
-
+		
     template<typename V, template<typename> typename P>
     std::vector<std::shared_ptr<HalfEdge>> generate_halfedges(std::shared_ptr<P<V>> polygon);
 
@@ -180,67 +173,6 @@ template <typename V, template<typename> typename P>
         return cc_clusters;
     }
 
-
-template<typename V, template<typename> typename P>
-std::shared_ptr<P<V>> merge(std::vector<std::shared_ptr<P<V>>> polygons) {
-        auto merged_polygon = std::make_shared<P<V>>();
-
-        if (number_of_connected_components(polygons) != 1) {
-            LOG_W ("not in 1 connected component! #cc: %d", number_of_connected_components(polygons));
-            //return merged_polygon;
-        }
-
-        std::map<std::pair<std::shared_ptr<V>, std::shared_ptr<V>>, std::shared_ptr<HalfEdge>> vpair_he_map;
-
-        for (auto p : polygons) {
-            auto halfedges = MeshUtils::generate_halfedges<V, P>(p);
-
-            for (auto he : halfedges) {
-                auto vp = std::make_pair(he->target(), he->source());
-
-                if ((he->source()->id() == 98 && he->target()->id() == 99) ||
-                    (he->source()->id() == 99 && he->target()->id() == 98 ) ){
-                    LOG_D("** 98 -- 99: %d", p->id());
-
-                }
-
-                if (vpair_he_map.find(vp) != vpair_he_map.end()) {
-                    vpair_he_map.erase(vp);
-                } else {
-                    //find the twin half edge
-                    std::swap(vp.first, vp.second);
-                    if (vpair_he_map.find(vp) != vpair_he_map.end()) {
-
-                        for (auto dp : polygons) {
-                            LOG_D("%d", dp->id());
-                        }
-                            DIE("%s exist!", IO::to_string(he).c_str());
-                    }
-                    vpair_he_map[vp] = he;
-                }
-
-            }
-        }
-
-
-
-        std::vector<std::shared_ptr<HalfEdge>> boundary_halfedges;
-        for (auto kv : vpair_he_map) {
-            auto he = kv.second;
-            boundary_halfedges.push_back(he);
-        }
-
-
-        reorder_loop(boundary_halfedges);
-
-        for (auto he : boundary_halfedges) {
-            merged_polygon->add_vertex(he->source());
-        }
-
-        return merged_polygon;
-    }
-
-
 template<typename V, template<typename> typename P>
 std::vector<std::shared_ptr<HalfEdge>> generate_halfedges(std::shared_ptr<P<V>> polygon) {
 
@@ -321,32 +253,6 @@ template<typename V, template<typename> typename P>
         }
 
     }
-}
-
-
-template<typename V>
-    std::shared_ptr<Polygon<V>> simplify_boundary(std::shared_ptr<Polygon<V>> polygon) {
-
-    auto halfedges = generate_halfedges(polygon);
-
-    auto simp_polygon = std::make_shared<Polygon<V>>();
-
-    int he_size = halfedges.size();
-    for (int i = 0; i < he_size; ++i) {
-
-        auto prev = halfedges[i];
-        auto next = halfedges[(i+1) % he_size];
-
-
-        double ang = GeometryUtils::angle(prev, next);
-        //std::cout << "cos(ang) :" << cos(ang) << " fabs(cos(ang) - 1) = " << fabs(cos(ang) - 1) << "\n";
-        if (fabs(cos(ang) - 1) > 1e-6) {
-            //    std::cout << "push " << prev->target()->id() << "\n";
-            simp_polygon->add_vertex(prev->target());
-        }
-    }
-
-    return simp_polygon;
 }
 
  void sampling(std::shared_ptr<Mesh<Vertex, Polygon>> mesh, double sample_rate);

@@ -41,7 +41,7 @@ struct kdtreeNode
 // this is what kdtree checks with find_within_range()
 // the "manhattan distance" from the search point.
 // effectively, distance is the maximum distance in any one dimension.
-            return std::max(fabs(x),std::max(fabs(y),fabs(z)));
+            return max(fabs(x),max(fabs(y),fabs(z)));
         }
 
 };

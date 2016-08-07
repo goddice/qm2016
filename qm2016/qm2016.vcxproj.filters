@@ -19,6 +19,12 @@
     <Filter Include="MeshLib\test">
       <UniqueIdentifier>{4a1e20dc-d81c-48d8-aff9-a6ae365500d0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MeshLib\3rdparty">
+      <UniqueIdentifier>{f2dd604c-8970-4a51-b0a2-885576d93956}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshLib\3rdparty\kdtree++">
+      <UniqueIdentifier>{71dd8937-9f2d-448d-aebe-e6bc5f94e678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MeshLib\Point.h">
@@ -71,6 +77,24 @@
     </ClInclude>
     <ClInclude Include="MeshLib\Polygon.h">
       <Filter>MeshLib</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLib\3rdparty\kdtree++\allocator.hpp">
+      <Filter>MeshLib\3rdparty\kdtree++</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLib\3rdparty\kdtree++\function.hpp">
+      <Filter>MeshLib\3rdparty\kdtree++</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLib\3rdparty\kdtree++\iterator.hpp">
+      <Filter>MeshLib\3rdparty\kdtree++</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLib\3rdparty\kdtree++\kdtree.hpp">
+      <Filter>MeshLib\3rdparty\kdtree++</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLib\3rdparty\kdtree++\node.hpp">
+      <Filter>MeshLib\3rdparty\kdtree++</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLib\3rdparty\kdtree++\region.hpp">
+      <Filter>MeshLib\3rdparty\kdtree++</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

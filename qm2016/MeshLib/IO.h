@@ -30,7 +30,6 @@ namespace IO {
 
     void save_front_as_poly(const std::vector<std::shared_ptr<Front>>& fronts, const char *filename);
 
-    void save_polygon_as_cm(std::shared_ptr<Polygon<Vertex>> polygon, const char *filename);
     //output functions
 
     std::string to_string(const Point& point);

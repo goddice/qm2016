@@ -85,39 +85,6 @@ namespace IO {
     }
 
 
-
-
-    void save_polygon_as_cm(std::shared_ptr<Polygon<Vertex>> polygon, const char *filename) {
-
-        std::ofstream output (filename);
-
-        std::map<std::shared_ptr<Vertex>, int> prev_id_map;
-
-        int vid = 1;
-        for (Polygon<Vertex>::VertexIterator viter(polygon); !viter.end(); ++viter) {
-            auto v = *viter;
-            prev_id_map[v] = v->id();
-            v->id() = vid++;
-
-            output << "Vertex " << v->id() << " " << v->point()[0] << " " << v->point()[1] << " " << v->point()[2] << "\n";
-        }
-
-
-        auto hes = MeshUtils::generate_halfedges(polygon);
-        for (auto he : hes) {
-            output << "Edge " << he->source()->id() << " " << he->target()->id() << "\n";
-        }
-
-        for (auto kv : prev_id_map) {
-            kv.first->id() = kv.second;
-        }
-
-        output.close();
-
-    }
-
-
-
     std::vector<std::shared_ptr<Front>> load_fronts(const char *filename) {
 
         std::vector<std::shared_ptr<Front>> fronts;
