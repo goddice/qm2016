@@ -16,10 +16,93 @@
     <Filter Include="MeshLib">
       <UniqueIdentifier>{9e03ba84-61bc-4198-832e-27613153a5c1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MeshLib\test">
+      <UniqueIdentifier>{4a1e20dc-d81c-48d8-aff9-a6ae365500d0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MeshLib\Point.h">
       <Filter>MeshLib</Filter>
     </ClInclude>
+    <ClInclude Include="MeshLib\test\test_All.h">
+      <Filter>MeshLib\test</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLib\Vertex.h">
+      <Filter>MeshLib</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLib\Edge.h">
+      <Filter>MeshLib</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLib\Front.h">
+      <Filter>MeshLib</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLib\Geometry.h">
+      <Filter>MeshLib</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLib\GeometryUtils.h">
+      <Filter>MeshLib</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLib\HalfEdge.h">
+      <Filter>MeshLib</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLib\IO.h">
+      <Filter>MeshLib</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLib\KDTree_Wrapper.h">
+      <Filter>MeshLib</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLib\Log.h">
+      <Filter>MeshLib</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLib\Mesh.h">
+      <Filter>MeshLib</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLib\Mesh_Interface.h">
+      <Filter>MeshLib</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLib\MeshExt.h">
+      <Filter>MeshLib</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLib\MeshUtils.h">
+      <Filter>MeshLib</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLib\Platform.h">
+      <Filter>MeshLib</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLib\Polygon.h">
+      <Filter>MeshLib</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MeshLib\test\test_Point.cpp">
+      <Filter>MeshLib\test</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshLib\Vertex.cpp">
+      <Filter>MeshLib</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshLib\Edge.cpp">
+      <Filter>MeshLib</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshLib\Front.cpp">
+      <Filter>MeshLib</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshLib\GeometryUtils.cpp">
+      <Filter>MeshLib</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshLib\IO.cpp">
+      <Filter>MeshLib</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshLib\KDTree_Wrapper.cpp">
+      <Filter>MeshLib</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshLib\Mesh.cpp">
+      <Filter>MeshLib</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshLib\MeshUtils.cpp">
+      <Filter>MeshLib</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

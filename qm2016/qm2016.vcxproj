@@ -19,7 +19,35 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MeshLib\Edge.h" />
+    <ClInclude Include="MeshLib\Front.h" />
+    <ClInclude Include="MeshLib\Geometry.h" />
+    <ClInclude Include="MeshLib\GeometryUtils.h" />
+    <ClInclude Include="MeshLib\HalfEdge.h" />
+    <ClInclude Include="MeshLib\IO.h" />
+    <ClInclude Include="MeshLib\KDTree_Wrapper.h" />
+    <ClInclude Include="MeshLib\Log.h" />
+    <ClInclude Include="MeshLib\Mesh.h" />
+    <ClInclude Include="MeshLib\MeshExt.h" />
+    <ClInclude Include="MeshLib\MeshUtils.h" />
+    <ClInclude Include="MeshLib\Mesh_Interface.h" />
+    <ClInclude Include="MeshLib\Platform.h" />
     <ClInclude Include="MeshLib\Point.h" />
+    <ClInclude Include="MeshLib\Polygon.h" />
+    <ClInclude Include="MeshLib\test\test_All.h" />
+    <ClInclude Include="MeshLib\Vertex.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MeshLib\Edge.cpp" />
+    <ClCompile Include="MeshLib\Front.cpp" />
+    <ClCompile Include="MeshLib\GeometryUtils.cpp" />
+    <ClCompile Include="MeshLib\IO.cpp" />
+    <ClCompile Include="MeshLib\KDTree_Wrapper.cpp" />
+    <ClCompile Include="MeshLib\Mesh.cpp" />
+    <ClCompile Include="MeshLib\MeshUtils.cpp" />
+    <ClCompile Include="MeshLib\test\test_Point.cpp" />
+    <ClCompile Include="MeshLib\Vertex.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5A006396-A826-4605-A731-A120A8618B2B}</ProjectGuid>
@@ -92,10 +120,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\Goddice\Documents\code\google-test\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\Goddice\Documents\code\google-test\lib\Debug</AdditionalLibraryDirectories>
+      <AdditionalDependencies>gtest_main-mdd.lib;gtestd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -122,12 +153,15 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\Goddice\Documents\code\google-test\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\Goddice\Documents\code\google-test\lib\Release</AdditionalLibraryDirectories>
+      <AdditionalDependencies>gtest.lib;gtest_main-md.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

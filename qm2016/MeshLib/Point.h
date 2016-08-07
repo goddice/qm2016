@@ -29,6 +29,8 @@ public:
 	Point  & operator *= ( double  s) { v[0] *= s   ; v[1] *=    s; v[2] *=    s; return *this; }	/*! Scaling a (3-dimensional vectors) */
 	Point  & operator /= ( double  s) { v[0] /= s   ; v[1] /=    s; v[2] /=    s; return *this; }	/*! Scale division (3-dimensional vectors) */
 
+	bool operator == (const Point & p) const { return (v[0] == p[0]) && (v[1] == p[1]) && (v[2] == p[2]); }
+
 	double	operator*(const Point & p)	const	{return v[0]*p[0]+ v[1]*p[1] + v[2]*p[2];}
 	Point	operator+(const Point & p)	const	{return Point(v[0]+p[0], v[1]+p[1], v[2]+p[2]);}
 	Point	operator-(const Point & p)	const	{return Point(v[0]-p[0], v[1]-p[1], v[2]-p[2]);}
